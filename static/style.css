@@ -1,0 +1,137 @@
+body {
+    font-family: Arial; /* Sets it to Arial font because i think it makes it more readable */
+    margin: 0; /* Removed margin */
+    padding: 0; /* Removed padding */
+    background-color: #e8e8e8; /* searched for hex codes of light gray and found one i though suited the websites background */
+}
+
+/* Style of the header section */
+header {
+    background-color: #007bff; /* Set blue background color (hex code from internet) */
+    color: white; /* Set white text color which is easy to read and looks nice */
+    padding: 20px;
+    text-align: center; /* Center-align text within the header which looks the nicest in my opinion */
+}
+
+/* Style of the navigation menu */
+nav {
+    text-align: center; /* Center-align navigation links so website looks neater */
+    margin-top: 20px; /* Add some space above the navigation menu to make it look better */
+}
+
+/* Style of the navigation menu list */
+nav ul {
+    list-style-type: none; /* Remove default list styling which i dont like */
+    padding: 0;
+}
+
+/* Style of the navigation menu items */
+nav ul li {
+    display: inline; /* Display navigation items horizontally so it takes up less length and looks nicer */
+    margin: 10px; /* Add some space between navigation items because it looks nicer */
+}
+
+/* Style of the navigation menu links */
+nav ul li a {
+    text-decoration: none; /* Removes decoration to differentiate from links you are hovered over */
+    color: black; /* Set link text color to black so it stands out */
+    font-weight: bold; /* Make link text bold so they stand out */
+}
+
+/* Style of the navigation menu links on hover */
+nav ul li a:hover {
+    text-decoration: underline; /* Underline links on hover so you know which one you are hovered over */
+    font-size: 15px; /* decrease the font size by a little when hovered over */
+}
+
+/* Style of the main content sections */
+section {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white; /* sets background color to white so black text is easier to read */
+    border-radius: 10px; /* Add rounded corners to content because it looks neater */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow effect to blend into gray background nicer */
+}
+
+/* Style of the footer section */
+footer {
+    background-color: #007bff; /* Set blue background color to match header color */
+    color: white; /* Set white text color which is the easiest to read in my opinion */
+    text-align: center; /* Center-align text within the footer because it fits in with the rest of the website */
+    padding: 5px;
+    position: relative; /* makes it look neater */
+    bottom: 0; /* puts footer to the bottom of the page because it lets the user know when they reached the bottom */
+    width: 100%; /* makes the footer stretch across the screen */
+}
+
+/* Style of the form container */
+form {
+    max-width: 600px; /* Set maximum width for the form so it doesnt take up too much room */
+    margin: 0 auto; /* makes items in form center aligned which in my opinion makes it look better */
+}
+
+/* Style of the form labels */
+label {
+    display: block; /* Display labels as block elements because i think it looks nicer */
+    margin-bottom: 10px; /* Add space below each label so its nicer to look at and less confusing */
+}
+
+/* Style of the text and email input fields */
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%; /* Set input width to 100% of its container */
+    padding: 10px; /* Add padding around input fields so you can see the input box better */
+    border: 1px solid gray; /* Add border around input fields so you can see the input box better */
+    border-radius: 5px; /* Add rounded corners to input fields because i think it looks nicer */
+    margin-bottom: 10px; /* Add space below each input field so its neater */
+}
+
+/* Style of the submit button */
+input[type="submit"] {
+    background-color: #007bff; /* Set blue background color because i think it looks best and matches footer and header */
+    color: white; /* Set white text color so its easier to read and looks nicer */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px; /* Add rounded corners to button */
+    cursor: pointer; /* Change cursor to pointer on hover so user knows hes over it */
+}
+
+/* Style of the submit button on hover */
+input[type="submit"]:hover {
+    background-color: #0056b3; /* Darken background color on hover so user knows hes hovering over it and because it looks nice (i researched the hex code) */
+}
+
+/* Style of the list items */
+li {
+    margin-bottom: 25px; /* Add space below each list item to make reading each section easier and neater */
+}
+
+/* Hide radio buttons to later customize the look of them better */
+input[type="radio"] {
+    display: none;
+}
+
+/* Style of the radio button labels */
+input[type="radio"] + label {
+    display: inline-block;
+    cursor: pointer; /* Change cursor to pointer on hover so user knows they are over it */
+    width: 150px;
+    padding: 5px 10px;
+    border: 2px solid gray; /* Add gray border around labels which makes it look nicer */
+    transition: background-color 0.3s, border-color 0.3s; /* Add transition effect so change isn't instant and looks smother */
+}
+
+/* Style checked radio button labels */
+input[type="radio"]:checked + label {
+    background-color: #007bff; /* Set blue background color for checked labels so user knows which one is selected and matches color theme*/
+    color: white; /* Set text color to white for checked labels because its easier to see */
+    border-color: #007bff; /* Set border color for selected ones blue so user knows difference between selected and hovered over */
+}
+
+/* Style radio button labels on hover */
+input[type="radio"] + label:hover {
+    background-color: #007bff; /* Set blue background color on hover so user can further tell which one they are about to select */
+    color: white; /* Set white text color on hover so user can read it */
+}

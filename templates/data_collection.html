@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- sets the scaling properly for each device -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Collection</title>
+    <!-- linking css style sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header section containing the title of the webpage (so user knows which page they are on) -->
+    <header>
+        <h1>Data Collection - Give feedback</h1>
+    </header>
+
+    <!-- Navigation menu (placed near top of page so user doesn't need to scroll to switch pages) -->
+    <nav>
+        <ul>
+            <!-- Links to other pages -->
+            <li><a href="welcome_page.html">Welcome</a></li>
+            <li><a href="information_page.html">Information</a></li>
+            <li><a href="data_collection.html">Data Collection</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main section containing the data collection form -->
+    <section id="data-collection">
+        <!-- Heading for the data collection form -->
+        <h2>Student Progress data collection</h2>
+        <!-- Form for collecting student progress data -->
+        <form action="#" method="post">
+            <!-- Input field for the students name -->
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <!-- Input field for the students id -->
+            <label for="student-number">Student Number:</label>
+            <input type="text" id="student-number" name="student-number" required><br><br>
+
+            <!-- Input field for the student's email address -->
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <!-- Input field for the student's grades in courses -->
+            <label for="grades">Grades Obtained in Courses:</label><br>
+            <input type="text" id="grades" name="grades" placeholder="Enter grades separated by commas" required><br><br>
+
+            <!-- Radio buttons for overall satisfaction with course (made it not required to fill out incase they don't feel comfortable sharing) -->
+            <label for="satisfaction">Overall Satisfaction with the Academic Experience:</label><br>
+            <input type="radio" id="very-satisfied" name="satisfaction" value="very-satisfied">
+            <label for="very-satisfied">Very Satisfied</label><br>
+            <input type="radio" id="satisfied" name="satisfaction" value="satisfied">
+            <label for="satisfied">Satisfied</label><br>
+            <input type="radio" id="neutral" name="satisfaction" value="neutral">
+            <label for="neutral">Neutral</label><br>
+            <input type="radio" id="dissatisfied" name="satisfaction" value="dissatisfied">
+            <label for="dissatisfied">Dissatisfied</label><br>
+            <input type="radio" id="very-dissatisfied" name="satisfaction" value="very-dissatisfied">
+            <label for="very-dissatisfied">Very Dissatisfied</label><br><br>
+
+            <!-- Text area for providing suggestions for improvement (put this just before submit button incase student wants to include any extra information that they want to add, also made it not required to fill out incase they have no suggestions) -->
+            <label for="improvement">Suggestions for Improvement:</label><br>
+            <textarea id="improvement" name="improvement" rows="4" cols="50"></textarea><br><br>
+
+            <!-- Submit button (put at bottom of data collection page because you should get here once you are done filling out everything else) -->
+            <input type="submit" value="Submit">
+        </form>
+    </section>
+
+    <!-- Footer section (kept same on all pages for consistency) -->
+    <footer>
+        <p>FC724 project</p>
+        <p>Made by Mashal Alsaleh - P413109</p>
+    </footer>
+</body>
+</html>
