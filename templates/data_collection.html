@@ -28,43 +28,69 @@
     <section id="data-collection">
         <!-- Heading for the data collection form -->
         <h2>Student Progress data collection</h2>
-        <!-- Form for collecting student progress data -->
-        <form action="#" method="post">
-            <!-- Input field for the students name -->
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required><br><br>
+        <!-- setup form with flask url routing, also added novalidate which disables browser validation -->
+        <form action="{{ url_for('Data_collection') }}" method="post" novalidate>
+            <!-- needed for wtforms -->
+            {{ form.hidden_tag() }}
 
-            <!-- Input field for the students id -->
-            <label for="student-number">Student Number:</label>
-            <input type="text" id="student-number" name="student-number" required><br><br>
+            <div>
+                <!-- label for the 'name' field, using label attribute from form object -->
+                <label for= "name"> {{form.name.label}} </label>
+                <!-- render 'name' input field with specific size and CSS class -->
+                {{ form.name(size=32, class_="input-class") }}
+                <!-- check for validation errors for the 'name' field -->
+                {% if form.name.errors %}
+                <!-- display a custom error message with styling if there are errors -->
+                        <div style="color: red; margin-bottom: 10px">Please fill this field out.</div>
+                {% endif %}
+            </div>
 
-            <!-- Input field for the student's email address -->
-            <label for="email">Email Address:</label>
-            <input type="email" id="email" name="email" required><br><br>
+            <!-- repeat the same structure for other fields, adjusting for each specific field -->
 
-            <!-- Input field for the student's grades in courses -->
-            <label for="grades">Grades Obtained in Courses:</label><br>
-            <input type="text" id="grades" name="grades" placeholder="Enter grades separated by commas" required><br><br>
+            <div>
+                <label for= "student-number"> {{form.student-number.label}} </label>
+                {{ form.student-number(size=32, class_="input-class") }}
+                {% if form.student-number.errors %}
+                        <div style="color: red; margin-bottom: 10px">Please fill this field out.</div>
+                {% endif %}
+            </div>
 
-            <!-- Radio buttons for overall satisfaction with course (made it not required to fill out incase they don't feel comfortable sharing) -->
-            <label for="satisfaction">Overall Satisfaction with the Academic Experience:</label><br>
-            <input type="radio" id="very-satisfied" name="satisfaction" value="very-satisfied">
-            <label for="very-satisfied">Very Satisfied</label><br>
-            <input type="radio" id="satisfied" name="satisfaction" value="satisfied">
-            <label for="satisfied">Satisfied</label><br>
-            <input type="radio" id="neutral" name="satisfaction" value="neutral">
-            <label for="neutral">Neutral</label><br>
-            <input type="radio" id="dissatisfied" name="satisfaction" value="dissatisfied">
-            <label for="dissatisfied">Dissatisfied</label><br>
-            <input type="radio" id="very-dissatisfied" name="satisfaction" value="very-dissatisfied">
-            <label for="very-dissatisfied">Very Dissatisfied</label><br><br>
+            <div>
+                <label for= "email"> {{form.email.label}} </label>
+                {{ form.email(size=32, class_="input-class") }}
+                {% if form.email.errors %}
+                        <div style="color: red; margin-bottom: 10px">Please fill this field out.</div>
+                {% endif %}
+            </div>
 
-            <!-- Text area for providing suggestions for improvement (put this just before submit button incase student wants to include any extra information that they want to add, also made it not required to fill out incase they have no suggestions) -->
-            <label for="improvement">Suggestions for Improvement:</label><br>
-            <textarea id="improvement" name="improvement" rows="4" cols="50"></textarea><br><br>
+            <div>
+                <label for="grades">{{ form.grades.label }}</label>
+                {{ form.grades(class_='textarea-class') }}
+                {% if form.grades.errors %}
+                        <div class="error" style = "color: red; margin-bottom: 10px";>Please fill this field out.</div>
+                {% endif %}
+            </div>
 
-            <!-- Submit button (put at bottom of data collection page because you should get here once you are done filling out everything else) -->
-            <input type="submit" value="Submit">
+            <div>
+                <label>{{ form.satisfaction.label }}</label>
+                {{ form.satisfaction(class_='radio-class') }}
+                {% if form.satisfaction.errors %}
+                        <div class="error" style = "color: red; margin-bottom: 10px";>Please select one of these choices.</div>
+                {% endif %}
+            </div>
+
+            <div>
+                <label for="improvement">{{ form.improvement.label }}</label>
+                {{ form.improvement(rows=4, cols=50, class_='textarea-class') }}
+                {% if form.improvement.errors %}
+                        <div class="error" style = "color: red; margin-bottom: 10px";>Please fill this field out.</div>
+                {% endif %}
+            </div>
+
+            <div>
+                <!-- render submit button for form -->
+                {{ form.submit(class_='submit-class') }}
+            </div>
         </form>
     </section>
 
