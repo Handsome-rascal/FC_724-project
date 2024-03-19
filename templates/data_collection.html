@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Collection</title>
     <!-- linking css style sheet -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <!-- Header section containing the title of the webpage (so user knows which page they are on) -->
@@ -18,9 +18,9 @@
     <nav>
         <ul>
             <!-- Links to other pages -->
-            <li><a href="welcome_page.html">Welcome</a></li>
-            <li><a href="information_page.html">Information</a></li>
-            <li><a href="data_collection.html">Data Collection</a></li>
+            <li><a href="/">Welcome</a></li>
+            <li><a href="/information_page">Information</a></li>
+            <li><a href="/data_collection">Data Collection</a></li>
         </ul>
     </nav>
 
@@ -29,7 +29,7 @@
         <!-- Heading for the data collection form -->
         <h2>Student Progress data collection</h2>
         <!-- setup form with flask url routing, also added novalidate which disables browser validation -->
-        <form action="{{ url_for('Data_collection') }}" method="post" novalidate>
+        <form action="{{ url_for('data_collection') }}" method="post" novalidate>
             <!-- needed for wtforms -->
             {{ form.hidden_tag() }}
 
@@ -48,9 +48,9 @@
             <!-- repeat the same structure for other fields, adjusting for each specific field -->
 
             <div>
-                <label for= "student-number"> {{form.student-number.label}} </label>
-                {{ form.student-number(size=32, class_="input-class") }}
-                {% if form.student-number.errors %}
+                <label for= "student-number"> {{form.student_number.label}} </label>
+                {{ form.student_number(size=32, class_="input-class") }}
+                {% if form.student_number.errors %}
                         <div style="color: red; margin-bottom: 10px">Please fill this field out.</div>
                 {% endif %}
             </div>
