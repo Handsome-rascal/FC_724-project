@@ -25,21 +25,32 @@ def welcome_page():
     # renders and returns the welcome html page
     return flask.render_template("welcome_page.html")
 
+# route for the information page
 @app.route("/information_page")
 def information_page():
+    # render and return the information page template
     return flask.render_template("information_page.html")
 
+# route for the data collection page, allowing both GET and POST requests
 @app.route("/data_collection", methods=["GET","POST"])
 def data_collection():
+    # instantiate the form
     form = DataCollectionForm()
+    # check if the form is submitted and valid
     if form.validate_on_submit():
+        # open feedback.txt file to append submitted form data
         with open('feedback.txt', 'a') as file:
-            file.write(
-                f'Name: {form.name.data}, Student number: {form.student_number.data}, Email: {form.email.data}, Grades: {form.grades.data}, Satisfaction: {form.satisfaction.data}, Improvement: {form.improvement.data}\n')
+            # write the form data to the file
+            file.write(f'Name: {form.name.data}, Student number: {form.student_number.data}, Email: {form.email.data}, Grades: {form.grades.data}, Satisfaction: {form.satisfaction.data}, Improvement: {form.improvement.data}\n')
+            # redirect the user to the thank you page after submitting the form
         return flask.redirect(flask.url_for('thank_you'))
+    # render and return the data collection page template with the form
     return flask.render_template('data_collection.html', form=form)
 
+# route for the thank you page
 @app.route('/thank_you')
 def thank_you():
+    # render and return the thank you page
     return flask.render_template('thank_you.html')
+# run the flask application
 app.run()
